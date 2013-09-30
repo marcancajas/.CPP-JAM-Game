@@ -43,29 +43,65 @@ void menu(Character* player) {
 void moveRight(Character* player)
 {
 	int a = player->position->get_xCord();
-	a = a+1;
-	player->position->set_xCord(a);
-	printf("You character has moved to x = %d\n", player->position->get_xCord());
+	
+	//Boundary Handling
+	if (a == 10)
+	{
+		printf("You have reached the edge of the world! \n");
+	}
+	else
+	{
+		a = a+1;
+		player->position->set_xCord(a);
+		printf("You character has moved to x = %d\n", player->position->get_xCord());
+	}
 }
 void moveLeft(Character* player)
 {
 	int a = player->position->get_xCord();
-	a = a-1;
-	player->position->set_xCord(a);
-	printf("You character has moved to x = %d\n", player->position->get_xCord());
+	
+	//Boundary Handling
+	if (a == 0)
+	{
+		printf("You have reached the edge of the world! \n");
+	}
+	else
+	{
+		a = a-1;
+		player->position->set_xCord(a);
+		printf("You character has moved to x = %d\n", player->position->get_xCord());
+	}
 }
 void moveUp(Character* player)
 {
 	int b = player->position->get_yCord();
-	b = b+1;
-	player->position->set_yCord(b);
-	printf("You character has moved to y = %d\n", player->position->get_yCord());
+	
+	//Boundary Handling
+	if (b == 10)
+	{
+		printf("You have reached the edge of the world! \n");
+	}
+	else
+	{
+		b = b+1;
+		player->position->set_yCord(b);
+		printf("You character has moved to y = %d\n", player->position->get_yCord());
+	}
 }
 void moveDown(Character* player)
 {
 	int b = player->position->get_yCord();
-	b = b-1;
-	player->position->set_yCord(b);
-	printf("You character has moved to y = %d\n", player->position->get_yCord());
+	
+	//Boundary Handling
+	if (b == 0)
+	{
+		printf("You have reached the edge of the world! \n");
+	}
+	else
+	{
+		b = b-1;
+		player->position->set_yCord(b);
+		printf("You character has moved to y = %d\n", player->position->get_yCord());
+	}
 }
 
