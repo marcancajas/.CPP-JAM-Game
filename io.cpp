@@ -4,6 +4,7 @@
 #include <string.h>
 #include <string>
 #include "io.h"
+#include "databaseM.h"
 
 using namespace std;
 
@@ -42,7 +43,10 @@ void menu(Character* player) {
 }
 void moveRight(Character* player)
 {
+	player = dbmRX(player);
 	int a = player->position->get_xCord();
+	printf("value of a before right movement : %d\n", a); 
+	
 	
 	//Boundary Handling
 	if (a == 10)
@@ -54,11 +58,14 @@ void moveRight(Character* player)
 		a = a+1;
 		player->position->set_xCord(a);
 		printf("You character has moved to x = %d\n", player->position->get_xCord());
+		dbmSX(player);
 	}
 }
 void moveLeft(Character* player)
 {
+	player = dbmRX(player);
 	int a = player->position->get_xCord();
+	printf("value of a before left movement : %d\n", a); 
 	
 	//Boundary Handling
 	if (a == 0)
@@ -70,10 +77,13 @@ void moveLeft(Character* player)
 		a = a-1;
 		player->position->set_xCord(a);
 		printf("You character has moved to x = %d\n", player->position->get_xCord());
+		dbmSX(player);
+		
 	}
 }
 void moveUp(Character* player)
 {
+	player = dbmRY(player);
 	int b = player->position->get_yCord();
 	
 	//Boundary Handling
@@ -86,10 +96,12 @@ void moveUp(Character* player)
 		b = b+1;
 		player->position->set_yCord(b);
 		printf("You character has moved to y = %d\n", player->position->get_yCord());
+		dbmSY(player);
 	}
 }
 void moveDown(Character* player)
 {
+	player = dbmRY(player);
 	int b = player->position->get_yCord();
 	
 	//Boundary Handling
@@ -102,6 +114,7 @@ void moveDown(Character* player)
 		b = b-1;
 		player->position->set_yCord(b);
 		printf("You character has moved to y = %d\n", player->position->get_yCord());
+		dbmSY(player);
 	}
 }
 
